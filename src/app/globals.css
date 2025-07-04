@@ -230,3 +230,26 @@ main {
   max-width: 50%;
   margin: 7px;
 }
+
+.stepper-button-disabled {
+  color: #30304769;
+}
+
+@media (max-width: 600px) {
+  .main-card,
+  .stepper-root {
+    min-width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    padding: 0 8px;
+  }
+  .stepper-actions {
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .stepper-input {
+    width: 85%;
+  }
+}
