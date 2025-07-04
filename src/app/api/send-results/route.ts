@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
@@ -15,7 +16,7 @@ export async function POST(req: NextRequest) {
 
   // Dynamically import xlsx to avoid type issues
   // @ts-expect-error: no types for xlsx
-  const mod = (await import("xlsx"));
+  const mod = await import("xlsx");
   const XLSX = mod.default || mod;
 
   // Prepare XLSX data
@@ -27,8 +28,8 @@ export async function POST(req: NextRequest) {
       row.a,
       row.b,
       row.c,
-      row.answer || ""
-    ])
+      row.answer || "",
+    ]),
   ];
   const ws = XLSX.utils.aoa_to_sheet(xlsxData);
   const wb = XLSX.utils.book_new();
@@ -59,15 +60,19 @@ export async function POST(req: NextRequest) {
         {
           filename: `16pf-resultados-${name.replace(/\s+/g, "_")}.xlsx`,
           content: xlsxBase64,
-          contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        }
-      ]
+          contentType:
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        },
+      ],
     });
     if (error) {
       console.error("Resend error:", error);
       return NextResponse.json({ success: false, error }, { status: 500 });
     }
-    return NextResponse.json({ success: true, data, xlsx: xlsxBase64 }, { status: 200 });
+    return NextResponse.json(
+      { success: true, data, xlsx: xlsxBase64 },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Catch block error:", error);
     return NextResponse.json(

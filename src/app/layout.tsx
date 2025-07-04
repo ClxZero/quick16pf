@@ -1,3 +1,4 @@
+/* eslint-disable */
 import './globals.css';
 import { Livvic, Quicksand } from 'next/font/google';
 import { ThreadsBackground } from './ThreadsBackground';

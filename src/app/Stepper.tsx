@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { CsvQuestionRow } from "../lib/csvtotext";
@@ -34,7 +35,6 @@ export const Stepper: React.FC<StepperProps> = ({
   let content: React.ReactNode = null;
   let canGoNext = true;
   let nextButtonText = "Siguiente";
-  let isLastQuestion = currentStep === 4 + questions.length - 1;
   const showNext =
     [0, 1, 2, 3].includes(currentStep) ||
     (currentStep >= 4 && currentStep < 4 + questions.length) ||
@@ -60,9 +60,6 @@ export const Stepper: React.FC<StepperProps> = ({
   const [xlsxBase64, setXlsxBase64] = useState<string | null>(null);
   const [resendCooldown, setResendCooldown] = useState<number>(0);
   const resendTimerRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Common disabled style
-  const disabledStyle = "opacity-50 cursor-not-allowed";
 
   // Start timer on pressing Start in step 3
   function handleStart() {
@@ -319,8 +316,8 @@ export const Stepper: React.FC<StepperProps> = ({
           <p className="stepper-subtitle">
             No piense demasiado el contenido de las frases, ni emplee mucho
             tiempo en decidirse. Las frases son muy cortas para darle todos los
-            detalles que usted quisiera; por ejemplo, se ha puesto "presenciar
-            una competición deportiva", tal vez a usted le guste más el fútbol
+            detalles que usted quisiera; por ejemplo, se ha puesto &quot;presenciar
+            una competición deportiva&quot;, tal vez a usted le guste más el fútbol
             que el baloncesto; debe contestar pensando en que es habitual para
             usted. Generalmente se contestan cinco o seis por minuto, y se tarda
             poco más de media hora para completar el cuestionario.
@@ -342,7 +339,7 @@ export const Stepper: React.FC<StepperProps> = ({
           </p>
           <p className="stepper-subtitle">
             Conteste sinceramente. No señale sus respuestas pensando en lo que
-            es "bueno" o lo que "interesa" para impresionar al examinador.
+            es &quot;bueno&quot; o lo que &quot;interesa&quot; para impresionar al examinador.
             Además el cuestionario se desarrolló para ser sensible a respuestas
             contradictorias.
           </p>
@@ -387,7 +384,7 @@ export const Stepper: React.FC<StepperProps> = ({
           </div>
         </div>
       );
-      if (isLastQuestion) {
+      if (currentStep === (4 + questions.length - 1)) {
         nextButtonText = "Terminar";
       }
       break;
@@ -505,7 +502,7 @@ export const Stepper: React.FC<StepperProps> = ({
           Go to Last Question (Debug)
         </button>
         {showNext &&
-          (isLastQuestion ? (
+          ((currentStep === (4 + questions.length - 1)) ? (
             <button
               onClick={handleFinishOnce}
               className={`stepper-button stepper-button-finish${

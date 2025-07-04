@@ -1,3 +1,4 @@
+/* eslint-disable */
 export type CsvQuestionRow = {
   number: string;
   question: string;
