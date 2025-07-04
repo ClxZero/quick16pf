@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles for a soft, modern look */
+html,
+body {
+  font-family: "Livvic", "Segoe UI", "Arial", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #fffaff;
+  color: #22223b;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.max-screen-90 {
+  min-height: 90vh;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+main {
+  max-width: 90%;
+  flex-wrap: wrap;
+}
+
+.main-card {
+  min-width: 70vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+
+.stepper-root {
+  max-width: 750px;
+}
+
+.title {
+  font-family: "Quicksand", "Segoe UI", "Arial", sans-serif;
+  font-size: 28px;
+  text-align: center;
+  color: #30304ecc;
+}
+
+.stepper-title {
+  font-size: 24px;
+  text-align: center;
+}
+
+.stepper-text {
+  color: #22223ba9;
+  font-weight: 500;
+}
+
+.label-text {
+  margin-bottom: 6px;
+}
+
+.stepper-input {
+  border-radius: 6px;
+  padding: 6px;
+  border: 1px solid rgb(113, 111, 116);
+}
+
+.stepper-actions {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.stepper-button {
+  display: flex;
+
+  height: 36px;
+
+  margin: 10px;
+  padding: 12px 12px;
+
+  cursor: pointer;
+  user-select: none;
+  transition: all 150ms linear;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none !important;
+  text-transform: none;
+  text-transform: capitalize;
+
+  color: #2f2147;
+  border: 0 none;
+  border-radius: 16px;
+
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 160px;
+
+  box-shadow: 2px 5px 10px rgba(36, 19, 63, 0.596);
+}
+
+.stepper-button:hover {
+  transition: all 150ms linear;
+
+  opacity: 0.85;
+}
+
+.stepper-button:active {
+  transition: all 150ms linear;
+  opacity: 0.75;
+}
+
+.stepper-button:focus {
+  outline: 1px solid #8f8996;
+  outline-offset: -4px;
+}
+
+.stepper-button-debug {
+  background-color: rgb(245, 230, 149);
+}
+
+.stepper-button-start {
+  background-color: rgb(131, 163, 204);
+}
+
+.stepper-button-finish {
+  background-color: rgb(131, 204, 131);
+}
+
+.stepper-button-disabled {
+  background-color: rgba(131, 204, 131, 0);
+}
+
+.stepper-error,
+.stepper-email-error {
+  margin-top: 6px;
+  font-size: 14px;
+  color: rgba(228, 65, 65, 0.753);
+}
+
+.stepper-hint {
+  color: #22223b;
+}
+
+.stepper-container-question {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.stepper-progress {
+  color: #22223b73;
+}
+.stepper-question {
+  margin-bottom: 4px;
+}
+
+.stepper-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stepper-timer {
+  margin-top: 6px;
+  color: #2d2d3b71;
+  font-style: italic;
+}
+
+/* Footer styles */
+.footer {
+  padding: 20px;
+  text-align: right;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(10px);
+  margin-top: auto;
+}
+
+.footer-link {
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.stepper-finish-title {
+  font-weight: 600;
+}
+
+.stepper-finish-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stepper-finish-time {
+  color: #22223b;
+}
+
+.stepper-finish-warning {
+  font-weight: 600;
+  font-style: italic;
+}
+
+.stepper-button-download {
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  max-width: 50%;
+  margin: 7px;
+}
