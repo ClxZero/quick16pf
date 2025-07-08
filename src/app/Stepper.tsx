@@ -316,11 +316,12 @@ export const Stepper: React.FC<StepperProps> = ({
           <p className="stepper-subtitle">
             No piense demasiado el contenido de las frases, ni emplee mucho
             tiempo en decidirse. Las frases son muy cortas para darle todos los
-            detalles que usted quisiera; por ejemplo, se ha puesto &quot;presenciar
-            una competición deportiva&quot;, tal vez a usted le guste más el fútbol
-            que el baloncesto; debe contestar pensando en que es habitual para
-            usted. Generalmente se contestan cinco o seis por minuto, y se tarda
-            poco más de media hora para completar el cuestionario.
+            detalles que usted quisiera; por ejemplo, se ha puesto
+            &quot;presenciar una competición deportiva&quot;, tal vez a usted le
+            guste más el fútbol que el baloncesto; debe contestar pensando en
+            que es habitual para usted. Generalmente se contestan cinco o seis
+            por minuto, y se tarda poco más de media hora para completar el
+            cuestionario.
           </p>
           <p className="stepper-subtitle">
             Evite señalar la respuesta B (¿?), excepto cuando le sea imposible
@@ -339,9 +340,9 @@ export const Stepper: React.FC<StepperProps> = ({
           </p>
           <p className="stepper-subtitle">
             Conteste sinceramente. No señale sus respuestas pensando en lo que
-            es &quot;bueno&quot; o lo que &quot;interesa&quot; para impresionar al examinador.
-            Además el cuestionario se desarrolló para ser sensible a respuestas
-            contradictorias.
+            es &quot;bueno&quot; o lo que &quot;interesa&quot; para impresionar
+            al examinador. Además el cuestionario se desarrolló para ser
+            sensible a respuestas contradictorias.
           </p>
         </div>
       );
@@ -384,7 +385,7 @@ export const Stepper: React.FC<StepperProps> = ({
           </div>
         </div>
       );
-      if (currentStep === (4 + questions.length - 1)) {
+      if (currentStep === 4 + questions.length - 1) {
         nextButtonText = "Terminar";
       }
       break;
@@ -490,7 +491,8 @@ export const Stepper: React.FC<StepperProps> = ({
             Anterior
           </button>
         )}
-        <button
+        {/* Button for Debugging
+         <button
           onClick={() =>
             setCurrentStep(questions.length > 0 ? 4 + questions.length - 1 : 4)
           }
@@ -500,9 +502,9 @@ export const Stepper: React.FC<StepperProps> = ({
           disabled={currentStep === 3}
         >
           Go to Last Question (Debug)
-        </button>
+        </button> */}
         {showNext &&
-          ((currentStep === (4 + questions.length - 1)) ? (
+          (currentStep === 4 + questions.length - 1 ? (
             <button
               onClick={handleFinishOnce}
               className={`stepper-button stepper-button-finish${
