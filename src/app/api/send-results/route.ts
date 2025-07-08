@@ -20,17 +20,31 @@ export async function POST(req: NextRequest) {
   const XLSX = mod.default || mod;
 
   // Prepare XLSX data
-  const xlsxData = [
-    ["number", "question", "a", "b", "c", "answer"],
-    ...(answers as Array<any>).map((row: any, idx: number) => [
-      idx + 1,
-      row.question,
-      row.a,
-      row.b,
-      row.c,
-      row.answer || "",
-    ]),
-  ];
+  // Map answers: a=1, b=2, c=3
+  const answerMap = { a: 1, b: 2, c: 3 };
+  const questionNumbers = (answers as Array<any>).map((_, idx: number) => (idx + 1));
+  const answerRow = (answers as Array<any>).map((row: any) => {
+    const ans = row.answer as 'a' | 'b' | 'c';
+    if (ans === 'a' || ans === 'b' || ans === 'c') {
+      return answerMap[ans];
+    }
+    return "";
+  });
+  const xlsxData = [questionNumbers, answerRow];
+
+  // Old format  // Prepare XLSX data
+  // const xlsxData = [
+  //   ["number", "question", "a", "b", "c", "answer"],
+  //   ...(answers as Array<any>).map((row: any, idx: number) => [
+  //     idx + 1,
+  //     row.question,
+  //     row.a,
+  //     row.b,
+  //     row.c,
+  //     row.answer || "",
+  //   ]),
+  // ];
+  
   const ws = XLSX.utils.aoa_to_sheet(xlsxData);
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Results");
